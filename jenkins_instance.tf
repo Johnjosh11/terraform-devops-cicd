@@ -46,11 +46,11 @@
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  name                        = "example-ec2-instance"
-  ami                         = "ami-025ff5abffdd579a0" # Personal jenkins image built
-  instance_type               = "t2.medium" # Minuimum requirement
+  name          = "example-ec2-instance"
+  ami           = "ami-025ff5abffdd579a0" # Personal jenkins image built
+  instance_type = "t2.medium"             # Minuimum requirement
 
- ### We might require this later ############ to run scripts while lauching 
+  ### We might require this later ############ to run scripts while lauching 
   # user_data_base64            = base64encode(local.user_data)
   # user_data_replace_on_change = true
   # tags = {
@@ -60,7 +60,7 @@ module "ec2_instance" {
   associate_public_ip_address = true
   key_name                    = "devop-e2e"
   iam_instance_profile        = aws_iam_instance_profile.test_profile.id
-  
+
 
 }
 
